@@ -1,0 +1,99 @@
+title: Error
+type: object
+description: |-
+  Error responses have the same format in all of the microservices.
+  The response body should be a content-type application/json
+properties:
+  message:
+    type: string
+    description: 'Short explanation what has happened, in English'
+    example: Client error
+  code:
+    type: string
+    description: 'In a format <domain>-<error_code> (uppercase). It''s also used as a key for i18n message templating. There are 2 types of error codes: common, which are the same for the whole company and domain specific. <domain> part is an abbreviation of the domain''s name. Domains can choose it, but they need to update specification page. It must be unique across company. <error_code> is an number chosen by domain.'
+    minLength: 1
+    pattern: '^[A-Z]+-[0-9]+$'
+    example: COM-1
+  source:
+    type: string
+    description: 'Full name of the microservice from which error comes from. If error is an aggregate, then ms aggregating errors is a source (details can have its own of necessary).'
+    example: controlplane-server-ms-tenant
+  correlation_id:
+    type: string
+    description: Unique error identifier with UUID format or Trace ID. Must be logged with an error. It helps to find an issue easier. Provide it when reporting a problem.
+    example: 4a0e1cc2-f2f4-4c40-bb71-d0154546e37a
+    maxLength: 64
+    pattern: '^([A-Fa-f0-9-])*$'
+  details:
+    title: ErrorDetails
+    type: array
+    description: 'Additional errors aggregator, when we need to deal with several issues'
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+          description: 'In a format <domain>-<error_code> (uppercase). It''s also used as a key for i18n message templating. There are 2 types of error codes: common, which are the same for the whole company and domain specific. <domain> part is an abbreviation of the domain''s name. Domains can choose it, but they need to update specification page. It must be unique across company. <error_code> is an number chosen by domain.'
+          pattern: '^[A-Z]+-[0-9]+$'
+          example: COM-2
+        message:
+          type: string
+          description: 'Short explanation what has happened, in English'
+          example: parameter too long
+        source:
+          type: string
+          description: ' If an error comes from a different microservice than top levelwe can put its name here.'
+        field:
+          type: string
+          description: Name of the field with validation problem. Written using dot notation (as in json structure).
+          example: parent1.parent2.field
+        value:
+          type: string
+          description: Current field value
+        pattern:
+          type: string
+          description: Expected field's pattern
+        maxLength:
+          type: number
+          description: Expected field's max length.
+        minLength:
+          type: number
+          description: Expected field's min length.
+        possibleValues:
+          type: array
+          description: Expected field's value must be one of those.
+          items:
+            type: string
+      example:
+        - code: VAL-1
+          message: Invalid serial number
+          field: vehicle.serial_number
+          value: '598356170'
+          possibleValues:
+            - '1111'
+            - '2222'
+      required:
+        - field
+required:
+  - message
+  - code
+  - source
+example:
+  code: GEN-2
+  message: Client error
+  source: ms-prices
+  correlation_id: 4a0e1cc2-f2f4-4c40-bb71-d0154546e37a
+  details:
+    - code: VAL-1
+      message: Invalid serial number
+      field: vehicle.serial_number
+      value: '598356170'
+      possibleValues:
+        - '1111'
+        - '2222'
+    - code: VAL-2
+      message: Field is mandatory
+      field: plate.type
+    - code: COM-3
+      message: business rule 1 is broken
+      source: different-ms

@@ -1,0 +1,8 @@
+title: PeopleListResponse
+type: object
+description: People list
+properties:
+  prices:
+    type: array
+    items:
+      $ref: './PeopleResponse.yaml'

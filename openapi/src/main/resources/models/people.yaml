@@ -1,0 +1,46 @@
+title: People
+type: object
+description: Model for People
+properties:
+  created:
+    title: Created Date
+    type: string
+    format: date-time
+    description: Created date of the character
+    example: '2014-12-09T13:50:51.644000Z'
+  name:
+    type: string
+    example: "Luke Skywalker"
+  height:
+    type: string
+    example: "172"
+  mass:
+    type: string
+    example: "77"
+  hair_color:
+    type: string
+    example: "blond"
+  skin_color:
+    type: string
+    example: "fair"
+  eye_color:
+    type: string
+    example: "blue"
+  birth_year:
+    type: string
+    example: "19BBY"
+  gender:
+    type: string
+    example: "male"
+
+example:
+  id: 1
+  name: 'C3PO'
+  height: '167'
+  mass: '75'
+  hair_color: 'gold'
+  skin_color: 'gold'
+  eye_color: 'yellow'
+  birth_year: '112BBY'
+  gender: 'male'
+  created: '2014-12-09T13:50:51.644000Z'

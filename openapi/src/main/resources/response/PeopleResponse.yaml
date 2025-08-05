@@ -1,0 +1,8 @@
+title: PeopleResponse
+type: object
+description: People
+allOf:
+  - $ref: '../models/people.yaml'
+properties:
+  id:
+    $ref: '../common/Id.yaml'
