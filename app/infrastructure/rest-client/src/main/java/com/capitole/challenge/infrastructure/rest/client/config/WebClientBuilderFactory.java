@@ -30,7 +30,7 @@ public class WebClientBuilderFactory {
       throw new IllegalArgumentException(
           "no clientId registered with name "
               + clientId
-              + ". Check you application.yml \"wefox.common.web.client.configs."
+              + ". Check you application.yml \"capitol.common.web.client.configs."
               + clientId
               + "\"");
     }

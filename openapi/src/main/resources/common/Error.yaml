@@ -81,7 +81,7 @@ required:
 example:
   code: GEN-2
   message: Client error
-  source: ms-prices
+  source: ms-people
   correlation_id: 4a0e1cc2-f2f4-4c40-bb71-d0154546e37a
   details:
     - code: VAL-1

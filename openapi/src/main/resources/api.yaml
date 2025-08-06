@@ -41,7 +41,7 @@ paths:
     get:
       operationId: get-starships-by-name-sorted
       tags:
-        - prices-v1
+        - starhips-v1
       summary: Get starships by name and sorted by created / name
       description: Returns the starships matching the name and sorted by name / created.
       parameters:
