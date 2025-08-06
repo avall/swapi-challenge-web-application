@@ -1,0 +1,33 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+dependencies {
+    implementation project(':app:domain')
+    implementation project(':app:application')
+    implementation project(':app:infrastructure:rest-api')
+    implementation project(':app:infrastructure:rest-client')
+    implementation project(':api-lib')
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+}
+
+springBoot {
+    mainClass = 'com.capitole.challenge.Application'
+}
+
+// -- CORRECCIÓN --
+// Habilitamos explícitamente la creación del JAR ejecutable para este módulo.
+// Esta tarea fue deshabilitada globalmente en el build.gradle raíz.
+bootJar {
+    enabled = true
+    archiveBaseName = 'starwars-app'
+    archiveVersion = '0.0.1-SNAPSHOT'
+}
+
+// -- CORRECCIÓN --
+// Deshabilitamos el JAR plano, ya que el bootJar es el que nos interesa.
+jar {
+    enabled = false
+}

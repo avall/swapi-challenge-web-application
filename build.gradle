@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.1' apply false
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+allprojects {
+    group = 'com.capitole.challenge'
+    version = '0.0.1-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+
+    // -- CORRECCIÓN --
+    // El bloque `dependencyManagement` se ha movido DENTRO de `subprojects`.
+    // Esto asegura que cada submódulo individual herede correctamente el BOM
+    // de Spring Boot y sepa qué versiones de dependencias debe usar.
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:3.3.1"
+            mavenBom "org.zalando:logbook-bom:3.0.0"
+        }
+        dependencies {
+            dependency "io.rest-assured:rest-assured:5.4.0"
+            dependency "org.mapstruct:mapstruct:1.5.5.Final"
+            dependency "org.jeasy:easy-random-core:5.0.0"
+            dependency "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0"
+        }
+
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    dependencies {
+        // Ahora, cuando Gradle vea 'org.projectlombok:lombok' sin versión,
+        // usará la versión especificada en el BOM de Spring Boot.
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+        annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.compilerArgs += [
+                "-Amapstruct.defaultComponentModel=spring"
+        ]
+    }
+
+    tasks.withType(org.springframework.boot.gradle.tasks.bundling.BootJar) {
+        enabled = false
+    }
+}

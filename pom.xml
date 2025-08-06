@@ -21,7 +21,7 @@
 		</properties>
 
 		<modules>
-<!--			<module>app</module>-->
+			<module>app</module>
 			<module>openapi</module>
 		</modules>
 

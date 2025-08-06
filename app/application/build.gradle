@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    // Dependencia del módulo domain dentro del mismo proyecto
+    implementation project(':app:domain')
+
+    // Dependencias comunes ya incluidas en la configuración global
+    // (Lombok, MapStruct, etc.)
+}

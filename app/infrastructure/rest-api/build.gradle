@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    // Dependencias heredadas del módulo padre infrastructure
+    implementation project(':app:application')
+    implementation project(':app:domain')
+    implementation project(':api-lib')
+
+    // Spring Boot starters
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // Logbook
+    implementation 'org.zalando:logbook-spring-boot-starter'
+
+    // SpringDoc OpenAPI UI
+    implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'
+
+    // RestAssured para pruebas (scope test)
+    testImplementation 'io.rest-assured:spring-web-test-client'
+}
+
+// Configuración adicional si es necesaria

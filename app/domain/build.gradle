@@ -1,0 +1,8 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    // Dependencias comunes ya incluidas en la configuración global (Lombok, MapStruct, etc.)
+    // No se necesitan dependencias adicionales según el POM original
+}

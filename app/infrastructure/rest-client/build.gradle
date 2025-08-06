@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    // Dependencias heredadas del módulo padre infrastructure
+    implementation project(':app:application')
+    implementation project(':app:domain')
+
+    // Spring Boot starters
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation('org.springframework.boot:spring-boot-starter-validation') {
+        exclude group: 'ch.qos.logback', module: 'logback-classic'
+    }
+
+    // Logbook para WebFlux
+    implementation 'org.zalando:logbook-spring-webflux'
+    implementation 'org.zalando:logbook-spring-boot-webflux-autoconfigure'
+
+    // Dependencias de test
+    testImplementation 'com.squareup.okhttp3:okhttp'
+    testImplementation 'com.squareup.okhttp3:mockwebserver'
+    testImplementation 'org.jeasy:easy-random-core'
+}
+
+// Configuración específica para tests
+test {
+    useJUnitPlatform()
+}

@@ -11,6 +11,7 @@ sql_warning.txt
 
 ## Build
 **/target/
+**/build/
 /workspace/
 
 ## VSCode
@@ -58,3 +59,4 @@ credentials/
 hs_err_pid*
 replay_pid*
 
+.gradle

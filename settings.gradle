@@ -1,0 +1,18 @@
+rootProject.name = 'starwars'
+
+include 'app'
+include 'openapi'
+include 'app:domain'
+include 'app:application'
+include 'app:infrastructure:rest-api'
+include 'app:infrastructure:rest-client'
+include 'app:main'
+
+// Opcional: Si quieres que los nombres de los artefactos sean más limpios,
+// puedes renombrar los proyectos aquí. Esto no afecta la estructura de carpetas.
+project(':openapi').name = 'api-lib'
+//project(':app:domain').name = 'domain'
+//project(':app:application').name = 'application'
+//project(':app:infrastructure:rest-api').name = 'infrastructure-rest-api'
+//project(':app:infrastructure:rest-client').name = 'infrastructure-rest-client'
+//project(':app:main').name = 'main'
