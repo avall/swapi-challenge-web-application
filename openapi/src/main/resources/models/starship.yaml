@@ -53,5 +53,4 @@ properties:
     example: "corvette"
   url:
     type: string
-    format: uri
     example: "https://swapi.info/api/starships/2"

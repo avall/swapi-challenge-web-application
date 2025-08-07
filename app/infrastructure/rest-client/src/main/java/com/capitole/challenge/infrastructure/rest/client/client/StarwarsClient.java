@@ -1,8 +1,8 @@
 package com.capitole.challenge.infrastructure.rest.client.client;
 
-import com.capitole.challenge.domain.model.People;
 import com.capitole.challenge.domain.model.Sort;
 import com.capitole.challenge.domain.model.SortOrder;
+import com.capitole.challenge.infrastructure.rest.client.dto.PeopleDto;
 import com.capitole.challenge.infrastructure.rest.client.dto.StarshipDto;
 import java.util.Comparator;
 import java.util.List;
@@ -21,16 +21,15 @@ public class StarwarsClient {
 
   private final WebClient client;
 
-
-  public Mono<List<People>> getPeople(Optional<String> name, Optional<Sort> sort) {
+  public Mono<List<PeopleDto>> getPeople(Optional<String> name, Optional<Sort> sort) {
     return client
         .get()
         .uri("/api/people")
         .accept(MediaType.APPLICATION_JSON)
         .retrieve()
-        .bodyToMono(new ParameterizedTypeReference<List<People>>() {})
+        .bodyToMono(new ParameterizedTypeReference<List<PeopleDto>>() {})
         .map(peopleList -> {
-          List<People> filteredList = name
+          List<PeopleDto> filteredList = name
               .filter(s -> !s.trim().isEmpty())
               .map(filterName -> peopleList.stream()
                   .filter(person -> person.name() != null && person.name().toLowerCase().contains(filterName.toLowerCase()))
@@ -40,12 +39,12 @@ public class StarwarsClient {
           // --- CAMBIO AQUÍ: Uso de Optional.ofNullable(comparator).map(...) ---
           return sort
               .map(s -> {
-                Comparator<People> comparator = null;
+                Comparator<PeopleDto> comparator = null;
                 if ("name".equalsIgnoreCase(s.field())) {
-                  comparator = Comparator.comparing(People::name);
+                  comparator = Comparator.comparing(PeopleDto::name);
                 }
                 if ("created".equalsIgnoreCase(s.field())) {
-                  comparator = Comparator.comparing(People::name);
+                  comparator = Comparator.comparing(PeopleDto::name);
                 }
                 return Optional.ofNullable(comparator)
                     .map(comp -> {
@@ -74,7 +73,7 @@ public class StarwarsClient {
           List<StarshipDto> filteredList = name
               .filter(s -> !s.trim().isEmpty())
               .map(filterName -> peopleList.stream()
-                  .filter(person -> person.getName() != null && person.getName().toLowerCase().contains(filterName.toLowerCase()))
+                  .filter(person -> person.name() != null && person.name().toLowerCase().contains(filterName.toLowerCase()))
                   .collect(Collectors.toList()))
               .orElse(peopleList);
 
@@ -83,10 +82,10 @@ public class StarwarsClient {
               .map(s -> {
                 Comparator<StarshipDto> comparator = null;
                 if ("name".equalsIgnoreCase(s.field())) {
-                  comparator = Comparator.comparing(StarshipDto::getName);
+                  comparator = Comparator.comparing(StarshipDto::name);
                 }
                 if ("created".equalsIgnoreCase(s.field())) {
-                  comparator = Comparator.comparing(StarshipDto::getCreated);
+                  comparator = Comparator.comparing(StarshipDto::created);
                 }
                 return Optional.ofNullable(comparator)
                     .map(comp -> {

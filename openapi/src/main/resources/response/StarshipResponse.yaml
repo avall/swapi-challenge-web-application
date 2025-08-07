@@ -1,8 +1,0 @@
-title: StarshipResponse
-type: object
-description: People
-allOf:
-  - $ref: '../models/starship.yaml'
-properties:
-  id:
-    $ref: '../common/Id.yaml'

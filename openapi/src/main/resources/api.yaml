@@ -34,7 +34,7 @@ paths:
         - $ref: '#/components/parameters/SortByQueryParam'
       responses:
         '200':
-          $ref: '#/components/responses/PeopleResponse'
+          $ref: '#/components/responses/PeopleListResponse'
         '400':
           $ref: '#/components/responses/BadRequest'
   /v1/starships:
@@ -50,15 +50,11 @@ paths:
         - $ref: '#/components/parameters/SortByQueryParam'
       responses:
         '200':
-          $ref: '#/components/responses/StarshipResponse'
+          $ref: '#/components/responses/StarshipListResponse'
         '400':
           $ref: '#/components/responses/BadRequest'
 components:
   schemas:
-    PeopleResponse:
-      $ref: "./response/PeopleResponse.yaml"
-    StarshipResponse:
-      $ref: "./response/StarshipResponse.yaml"
     Error:
       $ref: './common/Error.yaml'
   parameters:
@@ -69,18 +65,18 @@ components:
     SortByQueryParam:
       $ref: './parameters/SortByQueryParam.yaml'
   responses:
-    PeopleResponse:
+    PeopleListResponse:
       description: OK
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/PeopleResponse'
-    StarshipResponse:
+            $ref: "./response/PeopleListResponse.yaml"
+    StarshipListResponse:
       description: OK
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/StarshipResponse'
+            $ref: "./response/StarshipListResponse.yaml"
     BadRequest:
       description: Bad Request
       content:

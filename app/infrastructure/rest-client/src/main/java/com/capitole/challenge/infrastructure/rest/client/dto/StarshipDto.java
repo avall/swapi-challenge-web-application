@@ -1,21 +1,21 @@
 package com.capitole.challenge.infrastructure.rest.client.dto;
 
-@lombok.Data
-public class StarshipDto {
-    private String name;
-    private String model;
-    private String manufacturer;
-    private String costInCredits;
-    private String length;
-    private String maxAtmospheringSpeed;
-    private String crew;
-    private String passengers;
-    private String cargoCapacity;
-    private String consumables;
-    private String hyperdriveRating;
-    private String mglt;
-    private String starshipClass;
-    private String created;
-    private String edited;
-    private String url;
+@lombok.Builder
+public record StarshipDto (
+    String name,
+    String model,
+    String manufacturer,
+    String costInCredits,
+    String length,
+    String maxAtmospheringSpeed,
+    String crew,
+    String passengers,
+    String cargoCapacity,
+    String consumables,
+    String hyperdriveRating,
+    String mglt,
+    String starshipClass,
+    String created,
+    String edited,
+    String url) {
 }

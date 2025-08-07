@@ -1,10 +1,8 @@
 package com.capitole.challenge.application.port.input;
 
 import com.capitole.challenge.application.port.UseCase;
-import com.capitole.challenge.domain.model.People;
 import com.capitole.challenge.domain.model.Sort;
 import com.capitole.challenge.domain.model.Starship;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import lombok.AllArgsConstructor;
@@ -37,6 +35,6 @@ public interface GetStarshipsUseCase
   @Data
   @Builder
   class OutputValues implements UseCase.OutputValues {
-    private List<Starship> price;
+    private List<Starship> starships;
   }
 }

@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface GetPeopleOutPort {
-    Optional<List<People>> getPeople(Optional<String> name, Optional<Sort> sort);
+    List<People> getPeople(Optional<String> name, Optional<Sort> sort);
 }

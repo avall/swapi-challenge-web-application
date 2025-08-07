@@ -5,4 +5,4 @@ properties:
   content:
     type: array
     items:
-      $ref: './PeopleResponse.yaml'
+      $ref: '../models/People.yaml'

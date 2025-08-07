@@ -2,7 +2,9 @@ plugins {
     id 'org.openapi.generator' version '7.3.0'
 }
 
-archivesBaseName = 'api-lib'
+base {
+    archivesName = 'api-lib'
+}
 
 dependencies {
     implementation 'org.springframework:spring-web'
@@ -10,7 +12,7 @@ dependencies {
     implementation 'jakarta.annotation:jakarta.annotation-api'
     implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
     implementation 'org.hibernate.validator:hibernate-validator'
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0'
     // Lombok y MapStruct se heredan del build.gradle raíz
 }
 
