@@ -77,7 +77,8 @@ public interface UseCaseExecutorPort {
    * @param <I> Input
    * @param <O> Output
    * @param <R> Result type
-   */  default <I extends UseCase.InputValues, O extends UseCase.OutputValues, R> R executeBlocking(
+   */
+  default <I extends UseCase.InputValues, O extends UseCase.OutputValues, R> R executeBlocking(
       I input,
       UseCase<I, O> useCase,
       Function<O, R> outputFunction
