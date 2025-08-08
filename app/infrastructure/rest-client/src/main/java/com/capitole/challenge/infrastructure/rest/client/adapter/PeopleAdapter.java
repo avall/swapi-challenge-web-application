@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 
@@ -20,6 +21,7 @@ public class PeopleAdapter implements GetPeopleOutPort {
   private final StarwarsClient client;
   private final PeopleMapper mapper;
 
+  @Cacheable("people")
   @Override
   public List<People> getPeople(Optional<String> name, Optional<Sort> sort) {
     return Objects.requireNonNull(client.getPeople(name, sort).block()).stream()

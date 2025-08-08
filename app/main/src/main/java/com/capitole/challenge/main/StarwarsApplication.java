@@ -3,6 +3,7 @@ package com.capitole.challenge.main;
 import com.capitole.challenge.domain.decorator.Interactor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.FilterType;
     classes = {Interactor.class})
 )
 @SpringBootApplication
+@EnableCaching
 public class StarwarsApplication {
 
   public static void main(String[] args) {

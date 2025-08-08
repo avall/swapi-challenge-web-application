@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,6 +20,7 @@ public class StarshipAdapter implements GetStarshipOutPort {
   private final StarwarsClient client;
   private final StarshipMapper mapper;
 
+  @Cacheable("Starship")
   @Override
   public List<Starship> getStarships(Optional<String> name, Optional<Sort> sort) {
     return Objects.requireNonNull(client.getStarships(name, sort).block()).stream()
