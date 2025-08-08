@@ -22,7 +22,7 @@ capitole:
     web:
       client:
         configs:
-          starwars:
+          starwars-service:
             # from Ms-Tenant
             # http://controlplane-server-ms-tenant-svc.controlplane.svc.cluster.local
             base-url: https://swapi.info

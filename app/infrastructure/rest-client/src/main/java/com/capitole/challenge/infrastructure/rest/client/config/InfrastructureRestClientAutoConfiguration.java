@@ -29,8 +29,8 @@ public class InfrastructureRestClientAutoConfiguration {
     return new Jackson2JsonDecoder(mapper);
   }
 
-  @Bean("starwarsClient")
-  public WebClient starwarsClient(Logbook logbook, Jackson2JsonEncoder encoder, Jackson2JsonDecoder decoder) {
+  @Bean("starwarsWebClient")
+  public WebClient starwarsWebClient(Logbook logbook, Jackson2JsonEncoder encoder, Jackson2JsonDecoder decoder) {
     ExchangeStrategies exchangeStrategies =
         ExchangeStrategies.builder()
             .codecs(configurer -> configurer.defaultCodecs().jackson2JsonEncoder(encoder))
@@ -38,7 +38,7 @@ public class InfrastructureRestClientAutoConfiguration {
             .build();
 
     return webClientBuilderFactory
-        .getWebClientBuilder("reserve-service")
+        .getWebClientBuilder("starwars-service")
         .filter(new LogbookExchangeFilterFunction(logbook))
         .exchangeStrategies(exchangeStrategies)
         .build();

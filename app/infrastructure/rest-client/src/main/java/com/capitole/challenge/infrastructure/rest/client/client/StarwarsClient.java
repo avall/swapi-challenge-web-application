@@ -19,10 +19,10 @@ import reactor.core.publisher.Mono;
 @Component
 public class StarwarsClient {
 
-  private final WebClient client;
+  private final WebClient starwarsWebClient;
 
   public Mono<List<PeopleDto>> getPeople(Optional<String> name, Optional<Sort> sort) {
-    return client
+    return starwarsWebClient
         .get()
         .uri("/api/people")
         .accept(MediaType.APPLICATION_JSON)
@@ -63,7 +63,7 @@ public class StarwarsClient {
 
 
   public Mono<List<StarshipDto>> getStarships(Optional<String> name, Optional<Sort> sort) {
-    return client
+    return starwarsWebClient
         .get()
         .uri("/api/people")
         .accept(MediaType.APPLICATION_JSON)
