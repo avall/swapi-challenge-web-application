@@ -19,5 +19,5 @@ public record Starship(
     String starshipClass,
     String created,
     String edited,
-    String url) {
+    String url) implements Sorteable {
 }

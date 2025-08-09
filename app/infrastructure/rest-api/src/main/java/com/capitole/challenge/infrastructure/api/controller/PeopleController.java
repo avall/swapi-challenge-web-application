@@ -26,7 +26,7 @@ public class PeopleController implements PeopleV1Api, UseCaseExecutorPort {
     return functional(
             GetPeopleUseCase.InputValues.builder()
                 .name(name)
-                .sort(Sort.builder().field(sortBy).order(SortOrder.valueOf(sortOrder)).build())
+                .sort(Sort.builder().field(sortBy).order(sortOrder).build())
                 .build()
         ,
         getPeopleUseCase,

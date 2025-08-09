@@ -16,7 +16,7 @@ skinparam note {
     borderColor Tan
 }
 
-component [price-list] <<Spring Boot>> as price_list {
+component [people-list] <<Spring Boot>> as people_list {
 
 
 component [openapi] <<Spring Boot>> as openapi {

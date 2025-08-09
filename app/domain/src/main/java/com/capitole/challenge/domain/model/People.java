@@ -15,6 +15,6 @@ public record People(
     String homeworld,
     String created,
     String edited,
-    String url) {
+    String url) implements Sorteable {
 
 }

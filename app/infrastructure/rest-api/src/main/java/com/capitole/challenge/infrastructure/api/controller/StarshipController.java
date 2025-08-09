@@ -26,7 +26,7 @@ public class StarshipController implements StarhipsV1Api, UseCaseExecutorPort {
     return functional(
         GetStarshipsUseCase.InputValues.builder()
             .name(name)
-            .sort(Sort.builder().field(sortBy).order(SortOrder.valueOf(sortOrder)).build())
+            .sort(Sort.builder().field(sortBy).order(sortOrder).build())
             .build()
         ,
         getStarshipsUseCase,
