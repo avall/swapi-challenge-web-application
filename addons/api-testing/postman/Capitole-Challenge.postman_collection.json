@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "0fed79d4-c3ab-4c11-b0af-603409d16c92",
+		"name": "Capitole Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "307928",
+		"_collection_link": "https://wefoxgroup.postman.co/workspace/Control-Plane~ae8c7b7b-c227-4ea0-bce4-2ccf38c827f4/collection/307928-0fed79d4-c3ab-4c11-b0af-603409d16c92?action=share&source=collection_link&creator=307928"
+	},
+	"item": [
+		{
+			"name": "2020-06-14 10:00:00",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/people?name=luke&sortBy=name&sortOrder=DESC\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+            "api",
+						"v1",
+						"people"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "luke"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						},
+						{
+							"key": "sortOrder",
+							"value": "DESC\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},		{
+      "name": "2020-06-14 10:00:00",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/starships?name=luke&sortBy=name&sortOrder=DESC\n",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "starships"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "luke"
+            },
+            {
+              "key": "sortBy",
+              "value": "name"
+            },
+            {
+              "key": "sortOrder",
+              "value": "DESC\n"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+
+  ]
+}

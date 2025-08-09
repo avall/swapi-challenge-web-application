@@ -18,6 +18,8 @@ properties:
     type: string
     description: 'Full name of the microservice from which error comes from. If error is an aggregate, then ms aggregating errors is a source (details can have its own of necessary).'
     example: controlplane-server-ms-tenant
+  trace:
+    type: string
   correlation_id:
     type: string
     description: Unique error identifier with UUID format or Trace ID. Must be logged with an error. It helps to find an issue easier. Provide it when reporting a problem.

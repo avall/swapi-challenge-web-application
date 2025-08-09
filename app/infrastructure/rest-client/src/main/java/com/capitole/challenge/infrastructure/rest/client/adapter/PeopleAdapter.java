@@ -6,13 +6,9 @@ import com.capitole.challenge.domain.model.Sort;
 import com.capitole.challenge.infrastructure.rest.client.client.StarwarsClient;
 import com.capitole.challenge.infrastructure.rest.client.mapper.PeopleMapper;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-
 
 @Service
 @RequiredArgsConstructor
@@ -21,11 +17,10 @@ public class PeopleAdapter implements GetPeopleOutPort {
   private final StarwarsClient client;
   private final PeopleMapper mapper;
 
-  @Cacheable("people")
   @Override
-  public List<People> getPeople(Optional<String> name, Optional<Sort> sort) {
-    return Objects.requireNonNull(client.getPeople(name, sort).block()).stream()
+  public List<People> getPeople(String name, Sort sort) {
+    return client.getPeople(name, sort).stream()
         .map(mapper::toDomain)
-        .collect(Collectors.toList());
-  }
+        .toList();
+ }
 }

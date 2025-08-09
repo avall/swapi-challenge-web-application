@@ -12,8 +12,6 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-validation') {
         exclude group: 'ch.qos.logback', module: 'logback-classic'
     }
-    implementation 'org.springframework.boot:spring-boot-starter-cache'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
     // Logbook para WebFlux
     implementation 'org.zalando:logbook-spring-webflux'

@@ -23,15 +23,15 @@ servers:
 paths:
   /v1/people:
     get:
-      operationId: get-people-by-name-sorted
+      operationId: get-people-filtered-and-sorted
       tags:
         - people-v1
       summary: Get people by name and sorted by name / created
       description: Returns the people matching the name and sorted by name / created.
       parameters:
         - $ref: '#/components/parameters/NameQueryParam'
-        - $ref: '#/components/parameters/SortOrderQueryParam'
         - $ref: '#/components/parameters/SortByQueryParam'
+        - $ref: '#/components/parameters/SortOrderQueryParam'
       responses:
         '200':
           $ref: '#/components/responses/PeopleListResponse'
@@ -39,15 +39,15 @@ paths:
           $ref: '#/components/responses/BadRequest'
   /v1/starships:
     get:
-      operationId: get-starships-by-name-sorted
+      operationId: get-starships-filtered-and-sorted
       tags:
         - starhips-v1
       summary: Get starships by name and sorted by created / name
       description: Returns the starships matching the name and sorted by name / created.
       parameters:
         - $ref: '#/components/parameters/NameQueryParam'
-        - $ref: '#/components/parameters/SortOrderQueryParam'
         - $ref: '#/components/parameters/SortByQueryParam'
+        - $ref: '#/components/parameters/SortOrderQueryParam'
       responses:
         '200':
           $ref: '#/components/responses/StarshipListResponse'
@@ -60,10 +60,10 @@ components:
   parameters:
     NameQueryParam:
       $ref: './parameters/NameQueryParam.yaml'
-    SortOrderQueryParam:
-      $ref: './parameters/SortOrderQueryParam.yaml'
     SortByQueryParam:
       $ref: './parameters/SortByQueryParam.yaml'
+    SortOrderQueryParam:
+      $ref: './parameters/SortOrderQueryParam.yaml'
   responses:
     PeopleListResponse:
       description: OK
@@ -84,5 +84,7 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
 tags:
-  - name: starwars-v1
-    description: Version 1 for starwars API
+  - name: people-v1
+    description: Version 1 for people API
+  - name: starships-v1
+    description: Version 1 for starships API

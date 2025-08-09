@@ -1,4 +1,4 @@
-name: sortBy
+name: sort_by
 in: query
 description: field to sort by.
 required: false

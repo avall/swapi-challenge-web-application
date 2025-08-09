@@ -7,10 +7,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface PeopleDtoMapper {
 
+  @Mapping(target = "created", source = "created", dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'")
+  @Mapping(target = "edited", source = "edited", dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'")
   PeopleDto toDto(People entity);
 
   default PeopleListResponseDto toDto(List<People> entityList) {

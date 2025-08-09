@@ -7,8 +7,10 @@ import static com.capitole.challenge.infrastructure.api.exception.ExceptionUtils
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Path;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.NestedExceptionUtils;
 import org.springframework.http.HttpStatus;
@@ -34,7 +36,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-  public static final String MS_PRICE = "ms-price";
+  public static final String MS_STARWARS = "ms-swapi";
 
   @ResponseStatus(HttpStatus.BAD_REQUEST) // 400
   @ResponseBody
@@ -43,7 +45,7 @@ public class GlobalExceptionHandler {
     return ErrorDto.builder()
             .code(CommonErrorMessage.MESSAGE_NOT_READABLE.getCode())
             .message(CommonErrorMessage.MESSAGE_NOT_READABLE.getMessage())
-            .source(MS_PRICE).build();
+            .source(MS_STARWARS).build();
   }
 
   @ResponseStatus(HttpStatus.BAD_REQUEST) // 400
@@ -55,7 +57,7 @@ public class GlobalExceptionHandler {
         e.getParameter().getParameterName(), e.getMessage());
     return ErrorDto.builder()
         .code(CommonErrorMessage.ARGUMENT_NOT_VALID.getCode())
-        .source(MS_PRICE)
+        .source(MS_STARWARS)
         .message(e.getMessage())
         .details(buildInvalidDetails(invalidParams))
         .build();
@@ -71,7 +73,7 @@ public class GlobalExceptionHandler {
     return ErrorDto.builder()
         .correlationId(UUID.randomUUID().toString())
         .code(CommonErrorMessage.ARGUMENT_NOT_VALID.getCode())
-        .source(MS_PRICE)
+        .source(MS_STARWARS)
         .message(e.getMessage())
         .details(buildInvalidDetails(invalidParams))
         .build();
@@ -92,7 +94,7 @@ public class GlobalExceptionHandler {
     return ErrorDto.builder()
         .correlationId(UUID.randomUUID().toString())
         .code(CommonErrorMessage.ARGUMENT_NOT_VALID.getCode())
-        .source(MS_PRICE)
+        .source(MS_STARWARS)
         .message(ex.getMessage())
         .details(buildInvalidDetails(invalidParams))
         .build();
@@ -117,7 +119,7 @@ public class GlobalExceptionHandler {
     return ErrorDto.builder()
         .correlationId(UUID.randomUUID().toString())
         .code(CommonErrorMessage.ARGUMENT_NOT_VALID.getCode())
-        .source(MS_PRICE)
+        .source(MS_STARWARS)
         .message(e.getMessage())
         .details(buildInvalidDetails(invalidParams))
         .build();
@@ -131,7 +133,7 @@ public class GlobalExceptionHandler {
     return ErrorDto.builder()
         .code(CommonErrorMessage.RESOURCE_NOT_FOUND.getCode())
         .message(CommonErrorMessage.RESOURCE_NOT_FOUND.getMessage())
-        .source(MS_PRICE).build();
+        .source(MS_STARWARS).build();
   }
 
   @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -141,7 +143,7 @@ public class GlobalExceptionHandler {
     return ErrorDto.builder()
         .code(e.getCode())
         .message(e.getMessage())
-        .source(MS_PRICE).build();
+        .source(MS_STARWARS).build();
   }
 
   @ResponseStatus(HttpStatus.NOT_ACCEPTABLE) // 406
@@ -151,7 +153,7 @@ public class GlobalExceptionHandler {
     return ErrorDto.builder()
         .code(CommonErrorMessage.REQUEST_NOT_ACCEPTABLE.getCode())
         .message(CommonErrorMessage.REQUEST_NOT_ACCEPTABLE.getMessage())
-        .source(MS_PRICE).build();
+        .source(MS_STARWARS).build();
   }
 
   @ResponseStatus(code = HttpStatus.CONFLICT) //  409
@@ -159,7 +161,7 @@ public class GlobalExceptionHandler {
   @ExceptionHandler(SQLException.class)
   public ErrorDto handleConflict(SQLException e) {
     return ErrorDto.builder()
-        .source(MS_PRICE)
+        .source(MS_STARWARS)
         .code(CommonErrorMessage.CONFLICT.getCode())
         .message(NestedExceptionUtils.getMostSpecificCause(e).getMessage())
         .build();
@@ -172,7 +174,8 @@ public class GlobalExceptionHandler {
     return ErrorDto.builder()
         .code(CommonErrorMessage.INTERNAL_SERVER_ERROR.getCode())
         .message(CommonErrorMessage.INTERNAL_SERVER_ERROR.getMessage())
-        .source(MS_PRICE).build();
+        .trace(getTrace(e))
+        .source(MS_STARWARS).build();
   }
 
   @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 500
@@ -182,6 +185,14 @@ public class GlobalExceptionHandler {
     return ErrorDto.builder()
         .code(CommonErrorMessage.INTERNAL_SERVER_ERROR.getCode())
         .message(CommonErrorMessage.INTERNAL_SERVER_ERROR.getMessage())
-        .source(MS_PRICE).build();
+        .trace(getTrace(e))
+        .source(MS_STARWARS).build();
   }
+
+  private String getTrace(Exception e) {
+    return Arrays.stream(e.getStackTrace()).map(StackTraceElement::toString)
+        .collect(Collectors.joining("\n"));
+  }
+
+
 }

@@ -7,13 +7,11 @@ import com.capitole.challenge.infrastructure.rest.client.dto.StarshipDto;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
 @Component
@@ -21,86 +19,76 @@ public class StarwarsClient {
 
   private final WebClient starwarsWebClient;
 
-  public Mono<List<PeopleDto>> getPeople(Optional<String> name, Optional<Sort> sort) {
-    return starwarsWebClient
+  public List<PeopleDto> getPeople(String name, Sort sort) {
+    List<PeopleDto> peopleList = starwarsWebClient
         .get()
         .uri("/api/people")
         .accept(MediaType.APPLICATION_JSON)
         .retrieve()
         .bodyToMono(new ParameterizedTypeReference<List<PeopleDto>>() {})
-        .map(peopleList -> {
-          List<PeopleDto> filteredList = name
-              .filter(s -> !s.trim().isEmpty())
-              .map(filterName -> peopleList.stream()
-                  .filter(person -> person.name() != null && person.name().toLowerCase().contains(filterName.toLowerCase()))
-                  .collect(Collectors.toList()))
-              .orElse(peopleList);
+        .block();
 
-          // --- CAMBIO AQUÍ: Uso de Optional.ofNullable(comparator).map(...) ---
-          return sort
-              .map(s -> {
-                Comparator<PeopleDto> comparator = null;
-                if ("name".equalsIgnoreCase(s.field())) {
-                  comparator = Comparator.comparing(PeopleDto::name);
+    List<PeopleDto> filteredList = Optional.ofNullable(name)
+          .filter(s -> !s.trim().isEmpty())
+          .map(filterName -> peopleList.stream()
+              .filter(person -> person.name() != null && person.name().toLowerCase().contains(filterName.toLowerCase()))
+              .toList())
+          .orElse(peopleList);
+
+          Comparator<PeopleDto> comparator = null;
+          if ("name".equalsIgnoreCase(sort.field())) {
+            comparator = Comparator.comparing(PeopleDto::name);
+          }
+          if ("created".equalsIgnoreCase(sort.field())) {
+            comparator = Comparator.comparing(PeopleDto::name);
+          }
+    return Optional.ofNullable(comparator)
+              .map(comp -> {
+                if (sort.order() == SortOrder.DESC) {
+                  comp = comp.reversed();
                 }
-                if ("created".equalsIgnoreCase(s.field())) {
-                  comparator = Comparator.comparing(PeopleDto::name);
-                }
-                return Optional.ofNullable(comparator)
-                    .map(comp -> {
-                      if (s.order() == SortOrder.DESC) {
-                        comp = comp.reversed();
-                      }
-                      return filteredList.stream()
-                          .sorted(comp)
-                          .collect(Collectors.toList());
-                    })
-                    .orElse(filteredList); // Si el comparador es null, devuelve la lista filtrada sin ordenar
+                return filteredList.stream()
+                    .sorted(comp)
+                    .toList();
               })
               .orElse(filteredList);
-        });
   }
 
 
-  public Mono<List<StarshipDto>> getStarships(Optional<String> name, Optional<Sort> sort) {
-    return starwarsWebClient
+  public List<StarshipDto> getStarships(String name, Sort sort) {
+    List<StarshipDto> starshipList = starwarsWebClient
         .get()
-        .uri("/api/people")
+        .uri("/api/starships")
         .accept(MediaType.APPLICATION_JSON)
         .retrieve()
         .bodyToMono(new ParameterizedTypeReference<List<StarshipDto>>() {})
-        .map(peopleList -> {
-          List<StarshipDto> filteredList = name
-              .filter(s -> !s.trim().isEmpty())
-              .map(filterName -> peopleList.stream()
-                  .filter(person -> person.name() != null && person.name().toLowerCase().contains(filterName.toLowerCase()))
-                  .collect(Collectors.toList()))
-              .orElse(peopleList);
+        .block();
 
-          // --- CAMBIO AQUÍ: Uso de Optional.ofNullable(comparator).map(...) ---
-          return sort
-              .map(s -> {
-                Comparator<StarshipDto> comparator = null;
-                if ("name".equalsIgnoreCase(s.field())) {
-                  comparator = Comparator.comparing(StarshipDto::name);
-                }
-                if ("created".equalsIgnoreCase(s.field())) {
-                  comparator = Comparator.comparing(StarshipDto::created);
-                }
-                return Optional.ofNullable(comparator)
-                    .map(comp -> {
-                      if (s.order() == SortOrder.DESC) {
-                        comp = comp.reversed();
-                      }
-                      return filteredList.stream()
-                          .sorted(comp)
-                          .collect(Collectors.toList());
-                    })
-                    .orElse(filteredList); // Si el comparador es null, devuelve la lista filtrada sin ordenar
-              })
-              .orElse(filteredList);
-        });
+    List<StarshipDto> filteredList = Optional.ofNullable(name)
+        .filter(s -> !s.trim().isEmpty())
+        .map(filterName -> starshipList.stream()
+            .filter(person -> person.name() != null && person.name().toLowerCase().contains(filterName.toLowerCase()))
+            .toList())
+        .orElse(starshipList);
+
+    Comparator<StarshipDto> comparator = null;
+    if ("name".equalsIgnoreCase(sort.field())) {
+      comparator = Comparator.comparing(StarshipDto::name);
+    }
+    if ("created".equalsIgnoreCase(sort.field())) {
+      comparator = Comparator.comparing(StarshipDto::name);
+    }
+
+    return Optional.ofNullable(comparator)
+        .map(comp -> {
+          if (sort.order() == SortOrder.DESC) {
+            comp = comp.reversed();
+          }
+          return filteredList.stream()
+              .sorted(comp)
+              .toList();
+        })
+        .orElse(filteredList);
   }
-
 }
 

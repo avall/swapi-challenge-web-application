@@ -12,6 +12,8 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface StarshipDtoMapper {
 
+  @Mapping(target = "created", source = "created", dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'")
+  @Mapping(target = "edited", source = "edited", dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'")
   @Mapping(target = "MGLT", source = "mglt")
   StarshipDto toDto(Starship entity);
 

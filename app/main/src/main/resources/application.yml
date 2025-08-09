@@ -1,5 +1,8 @@
 server:
   port: 8080
+  servlet:
+    context-path: /api
+
 spring:
   jackson:
     property-naming-strategy: SNAKE_CASE
@@ -8,14 +11,6 @@ spring:
     date-format: yyyy-MM-dd'T'HH:mm:ss.SSSX
     deserialization:
       fail-on-unknown-properties: false
-  data:
-    redis:
-      host: localhost
-      port: 6379
-  cache:
-    redis:
-      time-to-live: 86400000  # TTL en ms (10 minutos)
-      cache-null-values: false
 
 capitole:
   common:
@@ -26,6 +21,17 @@ capitole:
             # from Ms-Tenant
             # http://controlplane-server-ms-tenant-svc.controlplane.svc.cluster.local
             base-url: https://swapi.info
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
+
+logbook:
+  write:
+    chunk-size: 2048
 
 logging:
   level:

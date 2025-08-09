@@ -24,7 +24,7 @@ subprojects {
     dependencyManagement {
         imports {
             mavenBom "org.springframework.boot:spring-boot-dependencies:3.3.1"
-            mavenBom "org.zalando:logbook-bom:3.0.0"
+            mavenBom "org.zalando:logbook-bom:3.12.2"
         }
         dependencies {
             dependency "io.rest-assured:rest-assured:5.4.0"
