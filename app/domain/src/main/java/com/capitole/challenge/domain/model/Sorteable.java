@@ -1,7 +1,10 @@
 package com.capitole.challenge.domain.model;
 
 /**
- * @author alex.vall on 2025-Aug-09
+ * @author Alex Vall
+ * Interface used to define the fields that can be sorted.
+ *
+ * @since 1.0.0
  */
 public interface Sorteable {
   String name();

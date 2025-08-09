@@ -4,7 +4,6 @@ import com.capitole.challenge.api.lib.controller.StarhipsV1Api;
 import com.capitole.challenge.api.lib.model.StarshipListResponseDto;
 import com.capitole.challenge.application.port.input.GetStarshipsUseCase;
 import com.capitole.challenge.domain.model.Sort;
-import com.capitole.challenge.domain.model.SortOrder;
 import com.capitole.challenge.infrastructure.api.mapper.StarshipDtoMapper;
 import com.capitole.challenge.infrastructure.api.presenter.UseCaseExecutorPort;
 import lombok.RequiredArgsConstructor;

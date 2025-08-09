@@ -4,7 +4,6 @@ import com.capitole.challenge.api.lib.controller.PeopleV1Api;
 import com.capitole.challenge.api.lib.model.PeopleListResponseDto;
 import com.capitole.challenge.application.port.input.GetPeopleUseCase;
 import com.capitole.challenge.domain.model.Sort;
-import com.capitole.challenge.domain.model.SortOrder;
 import com.capitole.challenge.infrastructure.api.mapper.PeopleDtoMapper;
 import com.capitole.challenge.infrastructure.api.presenter.UseCaseExecutorPort;
 import lombok.RequiredArgsConstructor;

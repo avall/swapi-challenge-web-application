@@ -8,7 +8,6 @@ import com.capitole.challenge.infrastructure.rest.client.mapper.PeopleMapper;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
