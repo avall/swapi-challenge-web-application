@@ -31,7 +31,10 @@
       <groupId>com.capitole.challenge</groupId>
       <artifactId>infrastructure-rest-client</artifactId>
     </dependency>
-
+    <dependency>
+      <groupId>com.capitole.challenge</groupId>
+      <artifactId>frontend</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

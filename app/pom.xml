@@ -33,16 +33,22 @@
         <module>infrastructure</module>
         <module>infrastructure/rest-api</module>
         <module>infrastructure/rest-client</module>
+        <module>infrastructure/frontend</module>
         <module>main</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.capitole.challenge</groupId>
-                <artifactId>domain</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+          <dependency>
+            <groupId>com.capitole.challenge</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>com.capitole.challenge</groupId>
+            <artifactId>frontend</artifactId>
+            <version>${project.version}</version>
+          </dependency>
             <dependency>
                 <groupId>com.capitole.challenge</groupId>
                 <artifactId>application</artifactId>
