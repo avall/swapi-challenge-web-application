@@ -3,9 +3,6 @@
 (function (global) {
   'use strict';
 
-  // Short-hand for React.createElement to keep JSX-less code readable
-  var h = React.createElement;
-
   // Debounce hook using setTimeout; re-computes when value changes after delay
   function useDebounced(value, delay) {
     if (delay === undefined) delay = 400;
@@ -23,6 +20,5 @@
   }
 
   // Expose to global
-  global.h = h;
   global.useDebounced = useDebounced;
 })(window);

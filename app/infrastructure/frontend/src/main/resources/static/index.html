@@ -9,6 +9,8 @@
   <!-- React and Babel -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Babel Standalone for JSX in components.js -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
     body { padding-top: 20px; }
     .table thead th { white-space: nowrap; }
@@ -31,7 +33,9 @@
 <!-- App scripts (order matters) -->
 <script src="index/utils.js"></script>
 <script src="index/api.js"></script>
-<script src="index/components.js"></script>
-<script src="index/app.js"></script>
+<!-- Load components.js with JSX -->
+<script type="text/babel" src="index/components.js"></script>
+<!-- Load app.js with JSX as well -->
+<script type="text/babel" src="index/app.js"></script>
 </body>
 </html>

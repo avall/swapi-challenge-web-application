@@ -1,109 +1,106 @@
-// Presentational components (no build, UMD globals)
+// Presentational components (JSX, transpiled by Babel Standalone)
 // Exports: window.Components
 
 (function (global) {
   'use strict';
 
-  var h = global.h; // from utils.js
-
   function Controls(props) {
-    var resource = props.resource,
-        onResourceChange = props.onResourceChange,
-        name = props.name,
-        onNameChange = props.onNameChange,
-        sortBy = props.sortBy,
-        onSortByChange = props.onSortByChange,
-        sortOrder = props.sortOrder,
-        onSortOrderChange = props.onSortOrderChange;
+    const { resource, onResourceChange, name, onNameChange, sortBy, onSortByChange, sortOrder, onSortOrderChange } = props;
+    return (
+      <div className="card mb-4">
+        <div className="card-body">
+          <div className="row g-3 align-items-end">
+            <div className="col-12 col-md-4">
+              <label className="form-label">Choose resource</label>
+              <div className="btn-group w-100" role="group">
+                <input type="radio" className="btn-check" name="resource" id="people" autoComplete="off" checked={resource === 'people'} onChange={() => onResourceChange('people')} />
+                <label className="btn btn-outline-primary" htmlFor="people">People</label>
+                <input type="radio" className="btn-check" name="resource" id="starships" autoComplete="off" checked={resource === 'starships'} onChange={() => onResourceChange('starships')} />
+                <label className="btn btn-outline-primary" htmlFor="starships">Starships</label>
+              </div>
+            </div>
 
-    return h('div', { className: 'card mb-4' },
-      h('div', { className: 'card-body' },
-        h('div', { className: 'row g-3 align-items-end' },
-          h('div', { className: 'col-12 col-md-4' },
-            h('label', { className: 'form-label' }, 'Choose resource'),
-            h('div', { className: 'btn-group w-100', role: 'group' },
-              h('input', { type: 'radio', className: 'btn-check', name: 'resource', id: 'people', autoComplete: 'off', checked: resource === 'people', onChange: function () { return onResourceChange('people'); } }),
-              h('label', { className: 'btn btn-outline-primary', htmlFor: 'people' }, 'People'),
-              h('input', { type: 'radio', className: 'btn-check', name: 'resource', id: 'starships', autoComplete: 'off', checked: resource === 'starships', onChange: function () { return onResourceChange('starships'); } }),
-              h('label', { className: 'btn btn-outline-primary', htmlFor: 'starships' }, 'Starships')
-            )
-          ),
-          h('div', { className: 'col-12 col-md-4' },
-            h('label', { htmlFor: 'search', className: 'form-label' }, 'Search by name'),
-            h('input', { id: 'search', className: 'form-control', placeholder: 'Type a name...', value: name, onChange: function (e) { return onNameChange(e.target.value); } })
-          ),
-          h('div', { className: 'col-6 col-md-2' },
-            h('label', { htmlFor: 'sortBy', className: 'form-label' }, 'Sort by'),
-            h('select', { id: 'sortBy', className: 'form-select', value: sortBy, onChange: function (e) { return onSortByChange(e.target.value); } },
-              h('option', { value: 'name' }, 'Name'),
-              h('option', { value: 'created' }, 'Created')
-            )
-          ),
-          h('div', { className: 'col-6 col-md-2' },
-            h('label', { htmlFor: 'sortOrder', className: 'form-label' }, 'Order'),
-            h('select', { id: 'sortOrder', className: 'form-select', value: sortOrder, onChange: function (e) { return onSortOrderChange(e.target.value); } },
-              h('option', { value: 'ASC' }, 'Ascending'),
-              h('option', { value: 'DESC' }, 'Descending')
-            )
-          )
-        )
-      )
+            <div className="col-12 col-md-4">
+              <label htmlFor="search" className="form-label">Search by name</label>
+              <input id="search" className="form-control" placeholder="Type a name..." value={name} onChange={(e) => onNameChange(e.target.value)} />
+            </div>
+
+            <div className="col-6 col-md-2">
+              <label htmlFor="sortBy" className="form-label">Sort by</label>
+              <select id="sortBy" className="form-select" value={sortBy} onChange={(e) => onSortByChange(e.target.value)}>
+                <option value="name">Name</option>
+                <option value="created">Created</option>
+              </select>
+            </div>
+
+            <div className="col-6 col-md-2">
+              <label htmlFor="sortOrder" className="form-label">Order</label>
+              <select id="sortOrder" className="form-select" value={sortOrder} onChange={(e) => onSortOrderChange(e.target.value)}>
+                <option value="ASC">Ascending</option>
+                <option value="DESC">Descending</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 
-  function PeopleTable(_a) {
-    var items = _a.items;
-
-    return h('div', { className: 'table-responsive' },
-      h('table', { className: 'table table-striped table-hover align-middle' },
-        h('thead', { className: 'table-light' },
-          h('tr', null,
-            h('th', null, 'Name'),
-            h('th', null, 'Gender'),
-            h('th', null, 'Birth Year'),
-            h('th', null, 'Created')
-          )
-        ),
-        h('tbody', null,
-          items.length === 0
-            ? h('tr', null, h('td', { colSpan: '4', className: 'text-center text-muted' }, 'No results'))
-            : items.map(function (p, idx) { return h('tr', { key: idx },
-                h('td', null, p.name),
-                h('td', null, p.gender),
-                h('td', null, p.birth_year),
-                h('td', null, p.created)
-              );
-            })
-        )
-      )
+  function PeopleTable({ items }) {
+    return (
+      <div className="table-responsive">
+        <table className="table table-striped table-hover align-middle">
+          <thead className="table-light">
+            <tr>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Birth Year</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.length === 0 ? (
+              <tr><td colSpan="4" className="text-center text-muted">No results</td></tr>
+            ) : items.map((p, idx) => (
+              <tr key={idx}>
+                <td>{p.name}</td>
+                <td>{p.gender}</td>
+                <td>{p.birth_year}</td>
+                <td>{p.created}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     );
   }
 
-  function StarshipsTable(_a) {
-    var items = _a.items;
-
-    return h('div', { className: 'table-responsive' },
-      h('table', { className: 'table table-striped table-hover align-middle' },
-        h('thead', { className: 'table-light' },
-          h('tr', null,
-            h('th', null, 'Name'),
-            h('th', null, 'Model'),
-            h('th', null, 'Manufacturer'),
-            h('th', null, 'Created')
-          )
-        ),
-        h('tbody', null,
-          items.length === 0
-            ? h('tr', null, h('td', { colSpan: '4', className: 'text-center text-muted' }, 'No results'))
-            : items.map(function (s, idx) { return h('tr', { key: idx },
-                h('td', null, s.name),
-                h('td', null, s.model),
-                h('td', null, s.manufacturer),
-                h('td', null, s.created)
-              );
-            })
-        )
-      )
+  function StarshipsTable({ items }) {
+    return (
+      <div className="table-responsive">
+        <table className="table table-striped table-hover align-middle">
+          <thead className="table-light">
+            <tr>
+              <th>Name</th>
+              <th>Model</th>
+              <th>Manufacturer</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.length === 0 ? (
+              <tr><td colSpan="4" className="text-center text-muted">No results</td></tr>
+            ) : items.map((s, idx) => (
+              <tr key={idx}>
+                <td>{s.name}</td>
+                <td>{s.model}</td>
+                <td>{s.manufacturer}</td>
+                <td>{s.created}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     );
   }
 
