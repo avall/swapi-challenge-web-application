@@ -27,9 +27,6 @@ springdoc:
     path: /swagger-ui.html
     operations-sorter: alpha
 
-logbook:
-  write:
-    chunk-size: 2048
 
 logging:
   level:
