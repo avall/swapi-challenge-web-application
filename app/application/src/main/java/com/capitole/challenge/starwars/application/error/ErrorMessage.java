@@ -1,6 +1,7 @@
 package com.capitole.challenge.starwars.application.error;
 
 /**
+ * @author alex.vall
  * Interface used for describing allowed behavior of any error details enum that implements it.
  *
  * @since 1.0.0

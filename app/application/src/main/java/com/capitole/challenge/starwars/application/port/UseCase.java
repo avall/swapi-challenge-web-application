@@ -4,6 +4,8 @@ package com.capitole.challenge.starwars.application.port;
 import com.capitole.challenge.starwars.application.exception.CoreException;
 
 /**
+ * @author alex.vall
+
  * To enforce any use case to have always input and output values.
  * @param <I> Input values to be processed by the use case
  * @param <O> output values returned after processing

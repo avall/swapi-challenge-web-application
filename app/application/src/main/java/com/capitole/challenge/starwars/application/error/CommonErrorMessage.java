@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
+ * @author alex.vall
  * Common error message enum that has all possible common messages for all common failure scenarios.
  *
  * @see ErrorMessage ErrorMessage

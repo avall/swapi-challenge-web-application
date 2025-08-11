@@ -5,6 +5,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
 
+/**
+ * @author alex.vall
+ * @param field
+ * @param order
+ */
 @lombok.Builder
 public record Sort(String field, String order) {
 

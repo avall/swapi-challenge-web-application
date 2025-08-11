@@ -11,6 +11,12 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author alex.vall
+ * @since 1.0.0
+ *
+ * Controller for the people resource.
+ */
 @RequiredArgsConstructor
 @RestController
 public class PeopleController implements PeopleV1Api, UseCaseExecutorPort {

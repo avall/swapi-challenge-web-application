@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.annotation.Validated;
 
 /**
+ * @author alex.vall
  * Configuration properties class for a web client.
  *
  * @since 1.0.0

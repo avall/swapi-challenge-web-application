@@ -15,6 +15,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClient.Builder;
 import reactor.netty.http.client.HttpClient;
 
+/**
+ * @author alex.vall
+ *
+ * @since 1.0.0
+ * Factory used to build the web client
+ */
 @Data
 @Slf4j
 @Component

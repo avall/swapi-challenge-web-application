@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @author alex.vall
  * Utils class used for building {@link ErrorDto} from exceptions.
  *
  * @since 1.0.0

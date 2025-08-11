@@ -12,6 +12,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.zalando.logbook.Logbook;
 import org.zalando.logbook.spring.webflux.LogbookExchangeFilterFunction;
 
+/**
+ * @author alex.vall
+ * @since 1.0.0
+ *
+ * Auto-configuration class used to configure the WebClient
+ */
 @Configuration
 @ComponentScan("com.capitole.challenge.starwars.infrastructure.rest.client.config")
 @RequiredArgsConstructor

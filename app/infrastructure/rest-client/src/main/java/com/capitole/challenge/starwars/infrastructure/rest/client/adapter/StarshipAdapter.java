@@ -10,6 +10,12 @@ import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author alex.vall
+ *
+ * @since 1.0.0
+ * Adapter class used to callout swap.info applying filtering and sorting
+ */
 @Service
 @RequiredArgsConstructor
 public class StarshipAdapter implements GetStarshipOutPort {

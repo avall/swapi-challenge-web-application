@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * @author alex.vall
+ *
  * Interface definition for the se case
  */
 public interface GetStarshipsUseCase

@@ -6,6 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+* @author alex.vall
+*
+* Core exception to be used by all the application layers.
+*/
 @Data
 @Builder
 @AllArgsConstructor

@@ -8,6 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 
 /**
+ * @author alex.vall
+ * @since 1.0.0
+ *
  * Main spring-boot application taking care to load
  * into the Spring Context any class that implements the Interactor.
  */

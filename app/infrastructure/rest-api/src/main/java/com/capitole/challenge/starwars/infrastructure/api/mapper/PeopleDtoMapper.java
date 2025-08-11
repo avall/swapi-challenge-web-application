@@ -9,6 +9,12 @@ import java.util.Optional;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+/**
+ * @author alex.vall
+ *
+ * @since 1.0.0
+ * Mapper used to map the People entity from swapi.info
+ */
 @Mapper(componentModel = "spring")
 public interface PeopleDtoMapper {
 

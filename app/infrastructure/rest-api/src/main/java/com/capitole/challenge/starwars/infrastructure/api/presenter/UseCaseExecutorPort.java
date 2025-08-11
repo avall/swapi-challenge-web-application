@@ -7,6 +7,9 @@ import java.util.function.Function;
 import org.springframework.web.context.request.async.DeferredResult;
 
 /**
+ * @author alex.vall
+ * @since 1.0.0
+ *
  * Interface to use Functional approach to execute any Use Case.
  */
 public interface UseCaseExecutorPort {

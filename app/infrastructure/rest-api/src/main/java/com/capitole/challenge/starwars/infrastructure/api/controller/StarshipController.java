@@ -11,6 +11,12 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author alex.vall
+ * @since 1.0.0
+ *
+ * Rest Controller for Starships
+ */
 @RestController
 @RequiredArgsConstructor
 public class StarshipController implements StarhipsV1Api, UseCaseExecutorPort {

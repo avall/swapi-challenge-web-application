@@ -9,6 +9,12 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
+/**
+ * @author alex.vall
+ * @since 1.0.0
+ *
+ * Client used to consume the swapi.info API
+ */
 @RequiredArgsConstructor
 @Component
 public class StarwarsClient {
