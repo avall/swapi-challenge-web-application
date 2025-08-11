@@ -38,7 +38,7 @@ class PeopleControllerIT {
   void getPeopleNotFound() {
     given()
         .port(port)
-        .queryParam("name", "zzzzzzzzzz")
+        .queryParam("name", "")
         .when()
         .get("/v1/people")
         .then()
