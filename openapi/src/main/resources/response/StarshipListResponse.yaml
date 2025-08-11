@@ -5,4 +5,4 @@ properties:
   content:
     type: array
     items:
-      $ref: '../models/Starship.yaml'
+      $ref: '../models/starship.yaml'

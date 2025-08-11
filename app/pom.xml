@@ -44,19 +44,9 @@
             <artifactId>domain</artifactId>
             <version>${project.version}</version>
           </dependency>
-          <dependency>
-            <groupId>com.capitole.challenge</groupId>
-            <artifactId>frontend</artifactId>
-            <version>${project.version}</version>
-          </dependency>
             <dependency>
                 <groupId>com.capitole.challenge</groupId>
                 <artifactId>application</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.capitole.challenge</groupId>
-                <artifactId>infrastructure-cache</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -69,6 +59,11 @@
                 <artifactId>infrastructure-rest-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
+          <dependency>
+            <groupId>com.capitole.challenge</groupId>
+            <artifactId>infrastructure-frontend</artifactId>
+            <version>${project.version}</version>
+          </dependency>
             <dependency>
                 <groupId>com.capitole.challenge</groupId>
                 <artifactId>api-lib</artifactId>

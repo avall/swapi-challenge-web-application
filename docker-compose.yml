@@ -5,18 +5,4 @@ services:
       dockerfile: ./addons/docker/Dockerfile
     container_name: app
     ports:
-      - 8080:8080
-
-  redis:
-    image: redis:alpine
-    container_name: pve01-docker-redis
-    ports:
-      - "6379:6379"
-
-  redis-insight:
-    image: redis/redisinsight:latest
-    restart: always
-    ports:
-      - "5540:5540"
-    volumes:
-      - redis-insight:/data
+      - 8082:8082

@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>frontend</artifactId>
+    <artifactId>infrastructure-frontend</artifactId>
     <name>frontend</name>
     <dependencies>
       <dependency>
