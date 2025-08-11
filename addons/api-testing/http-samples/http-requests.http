@@ -1,5 +1,5 @@
 ### GET people
-GET http://localhost:8082/v1/people?sort_by=created&sort_order=desc
+GET http://localhost:8082/v1/people?name=ara&sort_by=created&sort_order=desc
 
 > {%
   client.test("Request executed successfully", function() {

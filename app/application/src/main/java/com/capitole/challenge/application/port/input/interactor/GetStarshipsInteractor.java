@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 @Interactor
 @RequiredArgsConstructor
-public class GetStarshipInteractor implements GetStarshipsUseCase {
+public class GetStarshipsInteractor implements GetStarshipsUseCase {
 
   private final GetStarshipOutPort outPort;
 
