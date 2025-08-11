@@ -7,7 +7,7 @@ plugins {
 }
 
 allprojects {
-    group = 'com.capitole.challenge'
+    group = 'com.capitole.challenge.starwars'
     version = '0.0.1-SNAPSHOT'
 
     repositories {

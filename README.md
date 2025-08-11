@@ -5,12 +5,12 @@ Challenge for Consulting Company
 The `swapi.co` is no longer available and i am going to use `swapi.info` 
 
 ## Methodology (Api first) 
-- The methodologyused in this project is called API First. This methodology is based on the idea that the API should be designed and implemented before the client-side application. This approach allows the development team to focus on the API first, and then build the client-side application around the API.
+- The methodology used in this project is called API First. This methodology is based on the idea that the API specification should be designed and implemented before the client-side application. This approach allows the development team to focus on the API first, and then build the client-side application around the API.
 
 ## Tech Stack
 - Java 17 as language
-- Redis as Cache to improve the performance.
-- Spring Boot as Framework
+- Cache in memory to improve the performance.
+- Spring Boot as Framework in the backend.
 
 ## Components
 ### Architecture
@@ -24,13 +24,8 @@ The `swapi.co` is no longer available and i am going to use `swapi.info`
 
 ## Run the Project
 ### from your local JVM
-from CLI run this command to create the package:
-````
-./mvnw clean package -T 2
-````  
-
 Then to run:
-````./mvnw spring-boot:run````
+````./mvnw clean spring-boot:run````
 
 ### from Docker
 from CLI run this command:

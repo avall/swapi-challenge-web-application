@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.capitole.challenge</groupId>
+        <groupId>com.capitole.challenge.starwars</groupId>
         <artifactId>starwars</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -64,9 +64,9 @@
                             <generatorName>spring</generatorName>
                             <modelNameSuffix>Dto</modelNameSuffix>
                             <generateSupportingFiles>false</generateSupportingFiles>
-                            <packageName>com.capitole.challenge.api.lib</packageName>
-                            <apiPackage>com.capitole.challenge.api.lib.controller</apiPackage>
-                            <modelPackage>com.capitole.challenge.api.lib.model</modelPackage>
+                            <packageName>com.capitole.challenge.starwars.api.lib</packageName>
+                            <apiPackage>com.capitole.challenge.starwars.api.lib.controller</apiPackage>
+                            <modelPackage>com.capitole.challenge.starwars.api.lib.model</modelPackage>
                             <configOptions>
                                 <library>spring-boot</library>
                                 <title>${project.artifactId}</title>

@@ -8,7 +8,7 @@
 			<version>3.5.4</version>
 			<relativePath/>
 		</parent>
-		<groupId>com.capitole.challenge</groupId>
+		<groupId>com.capitole.challenge.starwars</groupId>
 		<artifactId>starwars</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<name>Star Wars Challenge</name>

@@ -1,0 +1,30 @@
+package com.capitole.challenge.starwars.infrastructure.api.mapper;
+
+import com.capitole.challenge.starwars.api.lib.model.StarshipDto;
+import com.capitole.challenge.starwars.api.lib.model.StarshipListResponseDto;
+import com.capitole.challenge.starwars.domain.model.Starship;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+@Mapper(componentModel = "spring")
+public interface StarshipDtoMapper {
+
+  @Mapping(target = "created", source = "created", dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'")
+  @Mapping(target = "edited", source = "edited", dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'")
+  @Mapping(target = "MGLT", source = "mglt")
+  StarshipDto toDto(Starship entity);
+
+  default StarshipListResponseDto toDto(List<Starship> entityList) {
+    return StarshipListResponseDto.builder()
+        .content(
+            Optional.ofNullable(entityList)
+                .orElseGet(Collections::emptyList)
+                .stream()
+                .map(this::toDto)
+                .toList()
+        ).build();
+  }
+}

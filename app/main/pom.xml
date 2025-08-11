@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.capitole.challenge</groupId>
+    <groupId>com.capitole.challenge.starwars</groupId>
     <artifactId>app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
@@ -16,23 +16,23 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.capitole.challenge</groupId>
+      <groupId>com.capitole.challenge.starwars</groupId>
       <artifactId>domain</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.capitole.challenge</groupId>
+      <groupId>com.capitole.challenge.starwars</groupId>
       <artifactId>application</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.capitole.challenge</groupId>
+      <groupId>com.capitole.challenge.starwars</groupId>
       <artifactId>infrastructure-rest-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.capitole.challenge</groupId>
+      <groupId>com.capitole.challenge.starwars</groupId>
       <artifactId>infrastructure-rest-client</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.capitole.challenge</groupId>
+      <groupId>com.capitole.challenge.starwars</groupId>
       <artifactId>infrastructure-frontend</artifactId>
     </dependency>
   </dependencies>

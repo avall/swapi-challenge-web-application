@@ -23,9 +23,9 @@ openApiGenerate {
     // -- CORRECCIÓN --
     // La propiedad 'generateSupportingFiles' se ha eliminado de este nivel.
     // Se ha movido dentro de 'configOptions' como 'supportingFiles'.
-    packageName = "com.capitole.challenge.api.lib"
-    apiPackage = "com.capitole.challenge.api.lib.controller"
-    modelPackage = "com.capitole.challenge.api.lib.model"
+    packageName = "com.capitole.challenge.starwars.api.lib"
+    apiPackage = "com.capitole.challenge.starwars.api.lib.controller"
+    modelPackage = "com.capitole.challenge.starwars.api.lib.model"
     configOptions = [
             "library"                                : "spring-boot",
             "title"                                  : project.name,

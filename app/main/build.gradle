@@ -14,7 +14,7 @@ dependencies {
 }
 
 springBoot {
-    mainClass = 'com.capitole.challenge.Application'
+    mainClass = 'com.capitole.challenge.starwars.Application'
 }
 
 // -- CORRECCIÓN --

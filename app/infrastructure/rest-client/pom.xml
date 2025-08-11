@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.capitole.challenge</groupId>
+    <groupId>com.capitole.challenge.starwars</groupId>
     <artifactId>infrastructure</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
