@@ -13,16 +13,12 @@ dependencies {
     implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
     implementation 'org.hibernate.validator:hibernate-validator'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0'
-    // Lombok y MapStruct se heredan del build.gradle raíz
 }
 
 openApiGenerate {
     inputSpec = "$projectDir/src/main/resources/api.yaml".toString()
     generatorName = "spring"
     modelNameSuffix = "Dto"
-    // -- CORRECCIÓN --
-    // La propiedad 'generateSupportingFiles' se ha eliminado de este nivel.
-    // Se ha movido dentro de 'configOptions' como 'supportingFiles'.
     packageName = "com.capitole.challenge.starwars.api.lib"
     apiPackage = "com.capitole.challenge.starwars.api.lib.controller"
     modelPackage = "com.capitole.challenge.starwars.api.lib.model"
@@ -41,8 +37,6 @@ openApiGenerate {
             "openApiNullable"                        : "false",
             "performBeanValidation"                  : "true",
             "useBeanValidation"                      : "true",
-            // -- CORRECCIÓN --
-            // Esta es la nueva forma de deshabilitar la generación de archivos de soporte.
             "supportingFiles"                        : "false"
     ]
     typeMappings = [

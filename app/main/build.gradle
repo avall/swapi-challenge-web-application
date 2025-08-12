@@ -12,23 +12,16 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    testImplementation 'io.rest-assured:spring-web-test-client'
 }
 
-//springBoot {
-//    mainClass = 'com.capitole.challenge.starwars.StarwarsApplication'
-//}
-
-// -- CORRECCIÓN --
-// Habilitamos explícitamente la creación del JAR ejecutable para este módulo.
-// Esta tarea fue deshabilitada globalmente en el build.gradle raíz.
 bootJar {
     enabled = true
     archiveBaseName = 'starwars-app'
     archiveVersion = '0.0.1-SNAPSHOT'
 }
 
-// -- CORRECCIÓN --
-// Deshabilitamos el JAR plano, ya que el bootJar es el que nos interesa.
 jar {
     enabled = false
 }

@@ -18,8 +18,6 @@ allprojects {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
-    // You also need to apply the Spring Boot plugin in subprojects if they are Spring Boot applications
-    // apply plugin: 'org.springframework.boot'
 
     dependencyManagement {
         imports {
@@ -48,17 +46,23 @@ subprojects {
 
     dependencies {
         compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
 
         implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+        implementation 'org.springframework.boot:spring-boot-starter-logging'
+
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        annotationProcessor 'org.projectlombok:lombok'
         annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
         annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+        testCompileOnly 'org.projectlombok:lombok'
+        testAnnotationProcessor 'org.projectlombok:lombok'
     }
 
     tasks.withType(JavaCompile).configureEach {
         options.compilerArgs += [
-                "-parameters",
-                "-Amapstruct.defaultComponentModel=spring"
+                "-parameters"
         ]
     }
 

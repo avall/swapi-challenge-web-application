@@ -16,6 +16,4 @@ include 'app:infrastructure:rest-client'
 include 'app:infrastructure:frontend'
 include 'app:main'
 
-// Opcional: Si quieres que los nombres de los artefactos sean más limpios,
-// puedes renombrar los proyectos aquí. Esto no afecta la estructura de carpetas.
 project(':openapi').name = 'api-lib'

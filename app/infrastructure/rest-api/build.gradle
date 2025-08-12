@@ -3,7 +3,6 @@ plugins {
 }
 
 dependencies {
-    // Dependencias heredadas del módulo padre infrastructure
     implementation project(':app:application')
     implementation project(':app:domain')
     implementation project(':api-lib')
@@ -13,15 +12,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-cache'
 
-
     // Logbook
     implementation 'org.zalando:logbook-spring-boot-starter'
 
     // SpringDoc OpenAPI UI (Spring Boot 3.x compatible)
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
 
-    // RestAssured para pruebas (scope test)
     testImplementation 'io.rest-assured:spring-web-test-client'
 }
-
-// Configuración adicional si es necesaria
