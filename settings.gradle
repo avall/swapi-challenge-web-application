@@ -13,6 +13,7 @@ include 'app:domain'
 include 'app:application'
 include 'app:infrastructure:rest-api'
 include 'app:infrastructure:rest-client'
+include 'app:infrastructure:frontend'
 include 'app:main'
 
 // Opcional: Si quieres que los nombres de los artefactos sean más limpios,

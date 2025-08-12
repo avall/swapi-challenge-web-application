@@ -7,15 +7,16 @@ dependencies {
     implementation project(':app:application')
     implementation project(':app:infrastructure:rest-api')
     implementation project(':app:infrastructure:rest-client')
+    implementation project(':app:infrastructure:frontend')
     implementation project(':api-lib')
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
-springBoot {
-    mainClass = 'com.capitole.challenge.starwars.Application'
-}
+//springBoot {
+//    mainClass = 'com.capitole.challenge.starwars.StarwarsApplication'
+//}
 
 // -- CORRECCIÓN --
 // Habilitamos explícitamente la creación del JAR ejecutable para este módulo.

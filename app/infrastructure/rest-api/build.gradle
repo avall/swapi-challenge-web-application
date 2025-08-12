@@ -17,8 +17,8 @@ dependencies {
     // Logbook
     implementation 'org.zalando:logbook-spring-boot-starter'
 
-    // SpringDoc OpenAPI UI
-    implementation 'org.springdoc:springdoc-openapi-ui:1.8.0'
+    // SpringDoc OpenAPI UI (Spring Boot 3.x compatible)
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
 
     // RestAssured para pruebas (scope test)
     testImplementation 'io.rest-assured:spring-web-test-client'

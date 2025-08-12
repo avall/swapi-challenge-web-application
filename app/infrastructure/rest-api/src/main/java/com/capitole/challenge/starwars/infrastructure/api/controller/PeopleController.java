@@ -24,7 +24,7 @@ public class PeopleController implements PeopleV1Api, UseCaseExecutorPort {
   private final GetPeopleUseCase getPeopleUseCase;
   private final PeopleDtoMapper mapper;
 
-  @Cacheable(cacheNames = {"people"}, key = "#name+#sortBy+#sortOrder")
+  @Cacheable(cacheNames = {"people"})
   @Override
   public ResponseEntity<PeopleListResponseDto> getPeopleFilteredAndSorted(String name, String sortBy,
       String sortOrder) {
