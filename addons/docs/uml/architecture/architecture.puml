@@ -30,17 +30,22 @@ component [app] <<Spring Boot>> as app {
     component [domain] as domain
     component [application] as application
     component [infrastructure] as infrastructure {
-      component [database] as adapterDatabase {
-        component dbo
-        component repository
-        component adapter
-        repository -u-> dbo
-        adapter -u-> repository
+      component [frontend] as frontend {
+        component [mvc]
       }
-      note bottom of adapterDatabase
-        DB Ports <<impl>> (out)
-        Database Repositories
+      note bottom of frontend
+        Web UI (react)
       end note
+
+      component [rest-client] as adapterRESTClientIdp {
+        component [adapter]
+        component [client]
+              adapter -u-> client
+      }
+      note bottom of adapterRESTClientIdp
+        Web Ports <<impl>> (out)
+      end note
+
       component [rest-api] as restApi {
         component api_lib
         component dto as restApiDto

@@ -2,14 +2,15 @@
 Challenge for Consulting Company
 
 ## Use Case
-The `swapi.co` is no longer available and i am going to use `swapi.info` 
+[Challenge description](addons/docs/Software%20Engineer%20Quiz.pdf) \
+The `swapi.co` is no longer available and i assume to use `swapi.info` 
 
 ## Methodology (Api first) 
 - The methodology used in this project is called API First. This methodology is based on the idea that the API specification should be designed and implemented before the client-side application. This approach allows the development team to focus on the API first, and then build the client-side application around the API.
 
 ## Tech Stack
 - Java 17 as language
-- Cache in memory to improve the performance.
+- Cache in memory to improve the performance. In production is better to use distributed cache like Redis, Hazelcast, ...
 - Spring Boot as Framework in the backend.
 
 ## Components
@@ -25,7 +26,7 @@ The `swapi.co` is no longer available and i am going to use `swapi.info`
 ## Run the Project
 ### from your local JVM
 Then to run:
-````./mvnw clean spring-boot:run````
+````./gradlew clean bootRun````
 
 ### from Docker
 from CLI run this command:
