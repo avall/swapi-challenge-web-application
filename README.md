@@ -40,7 +40,7 @@ docker compose up
 - The integration test is implemented into the class `StarwarsControllerIT`.
 - Once the micro is running we can run a manual test using:
     - From terminal:
-      - `curl http://localhost:8080/v1/people`
-      - `curl http://localhost:8080/v1/starships`
+      - `curl http://localhost:8082/v1/people`
+      - `curl http://localhost:8082/v1/starships`
     - From `ìntellij` using `http` feature. Go to folder `./addons/api-testing/http-samples` & click on the file (`http-requests.http`) with extension `http`.
     - From `postman` import the collection `./addons/api-testing/postman/Capitole-Challenge.postman_collection.json`. 

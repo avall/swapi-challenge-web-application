@@ -12,12 +12,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/people?name=luke&sortBy=name&sortOrder=DESC\n",
+					"raw": "http://localhost:8082/api/v1/people?name=luke&sortBy=name&sortOrder=DESC\n",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8082",
 					"path": [
             "api",
 						"v1",
@@ -46,12 +46,12 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:8080/api/v1/starships?name=luke&sortBy=name&sortOrder=DESC\n",
+          "raw": "http://localhost:8082/api/v1/starships?name=luke&sortBy=name&sortOrder=DESC\n",
           "protocol": "http",
           "host": [
             "localhost"
           ],
-          "port": "8080",
+          "port": "8082",
           "path": [
             "api",
             "v1",

@@ -56,7 +56,7 @@ spec:
         readinessProbe:
           httpGet:
             path: ${K8S_HEALTH_CHECK}
-            port: 8080
+            port: 8082
           initialDelaySeconds: 120
           periodSeconds: 5
           successThreshold: 1
