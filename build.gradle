@@ -57,6 +57,7 @@ subprojects {
 
     tasks.withType(JavaCompile).configureEach {
         options.compilerArgs += [
+                "-parameters",
                 "-Amapstruct.defaultComponentModel=spring"
         ]
     }

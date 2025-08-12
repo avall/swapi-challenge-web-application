@@ -24,7 +24,7 @@ public class StarshipController implements StarhipsV1Api, UseCaseExecutorPort {
   private final GetStarshipsUseCase getStarshipsUseCase;
   private final StarshipDtoMapper mapper;
 
-  @Cacheable(cacheNames = {"starship"})
+  @Cacheable(cacheNames = {"starship"}, key = "'starship:' + (#name?:'') + ':' + (#sortBy?:'') + ':' + (#sortOrder?:'')")
   @Override
   public ResponseEntity<StarshipListResponseDto> getStarshipsFilteredAndSorted(String name, String sortBy,
       String sortOrder) {
