@@ -22,6 +22,7 @@ The `swapi.co` is no longer available and i assume to use `swapi.info`
     - `app` Micro-service implementation.
       ![](addons/docs/uml/architecture/architecture.svg)
 - The `@Interactor` (decorator) is useful to avoid the Spring Framework dependencies in the Application layer.
+- The UI has been implemented using ReactJS.
 
 ## Run the Project
 ### from your local JVM
