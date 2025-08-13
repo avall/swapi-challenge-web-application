@@ -5,7 +5,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'starwars'
+rootProject.name = 'web'
 
 include 'app'
 include 'openapi'
