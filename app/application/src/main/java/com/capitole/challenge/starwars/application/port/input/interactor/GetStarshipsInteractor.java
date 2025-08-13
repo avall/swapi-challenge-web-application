@@ -6,6 +6,11 @@ import com.capitole.challenge.starwars.application.port.output.GetStarshipOutPor
 import com.capitole.challenge.starwars.domain.decorator.Interactor;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @author alex.vall
+ *
+ * Interactor for the Get Starships use case
+ */
 @Interactor
 @RequiredArgsConstructor
 public class GetStarshipsInteractor implements GetStarshipsUseCase {

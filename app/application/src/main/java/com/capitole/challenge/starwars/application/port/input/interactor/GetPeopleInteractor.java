@@ -6,6 +6,11 @@ import com.capitole.challenge.starwars.application.port.output.GetPeopleOutPort;
 import com.capitole.challenge.starwars.domain.decorator.Interactor;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * @author alex.vall
+ *
+ * Interactor for the get people use case
+ */
 @Interactor
 @RequiredArgsConstructor
 public class GetPeopleInteractor implements GetPeopleUseCase {
