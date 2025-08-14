@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation project(':app:application')
+    implementation project(':app:domain')
+    implementation project(':api-lib')
+
+    // Spring Boot starters
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+
+    // Logbook
+    implementation 'org.zalando:logbook-spring-boot-starter'
+
+    // SpringDoc OpenAPI UI (Spring Boot 3.x compatible)
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
+
+    testImplementation 'io.rest-assured:spring-web-test-client'
+}

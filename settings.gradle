@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'web'
+
+include 'app'
+include 'openapi'
+include 'app:domain'
+include 'app:application'
+include 'app:infrastructure:rest-api'
+include 'app:infrastructure:rest-client'
+include 'app:infrastructure:frontend'
+include 'app:main'
+
+project(':openapi').name = 'api-lib'

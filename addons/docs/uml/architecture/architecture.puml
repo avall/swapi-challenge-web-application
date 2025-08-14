@@ -1,0 +1,78 @@
+@startuml
+
+skinparam linetype ortho
+skinparam component<<Spring Boot>> {
+    backgroundColor White
+    borderColor Grey
+}
+
+skinparam component {
+    backgroundColor White
+    borderColor CornflowerBlue
+    ArrowColor DarkBlue
+}
+skinparam note {
+    backgroundColor LightYellow
+    borderColor Tan
+}
+
+component [people-list] <<Spring Boot>> as people_list {
+
+
+component [openapi] <<Spring Boot>> as openapi {
+    component [generator] <<Generator Maven Plugin>>
+    component [specification] <<API definition (yaml)>>
+    generator -up-> specification
+}
+
+component [app] <<Spring Boot>> as app {
+  component [main] as main {
+    component [domain] as domain
+    component [application] as application
+    component [infrastructure] as infrastructure {
+      component [frontend] as frontend {
+        component [mvc]
+      }
+      note bottom of frontend
+        Web UI (react)
+      end note
+
+      component [rest-client] as adapterRESTClientIdp {
+        component [adapter]
+        component [client]
+              adapter -u-> client
+      }
+      note bottom of adapterRESTClientIdp
+        Web Ports <<impl>> (out)
+      end note
+
+      component [rest-api] as restApi {
+        component api_lib
+        component dto as restApiDto
+        component controller
+        api_lib -up-> restApiDto
+        controller -up-> api_lib
+        note right of controller
+          REST Controllers
+        end note
+      }
+    }
+  }
+
+  application -up-> domain
+  infrastructure -up-> application
+
+
+  note right of domain
+  Domain Model
+  end note
+
+  note right of application
+  Ports <<interfaces>>
+  Input Ports Impl <<Interactors>>
+  Services
+  end note
+
+}
+}
+@enduml

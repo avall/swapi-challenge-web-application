@@ -1,0 +1,8 @@
+name: sort_order
+in: query
+description: Direction of the sort.
+required: false
+schema:
+  type: string
+  enum: [ASC, DESC]
+  default: ASC

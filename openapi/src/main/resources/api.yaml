@@ -1,0 +1,90 @@
+openapi: 3.0.3
+info:
+  title: StarWars API
+  description: API to retrieve peoplae & starships by name and sort by name and created
+  version: v1
+  license:
+    name: private
+    url: 'https://'
+  contact:
+    name: Capitole
+    email: developer.support@capitole.com
+    url: 'https://www.capitole.com/support'
+servers:
+  - description: Capitole Internal Gateway
+    url: 'https://capitole-server-api-gateway.{environment}.eu-central-1.retail.capitole.cloud'
+    variables:
+      environment:
+        default: dev
+        enum:
+          - dev
+          - stg
+          - pro
+paths:
+  /v1/people:
+    get:
+      operationId: get-people-filtered-and-sorted
+      tags:
+        - people-v1
+      summary: Get people by name and sorted by name / created
+      description: Returns the people matching the name and sorted by name / created.
+      parameters:
+        - $ref: '#/components/parameters/NameQueryParam'
+        - $ref: '#/components/parameters/SortByQueryParam'
+        - $ref: '#/components/parameters/SortOrderQueryParam'
+      responses:
+        '200':
+          $ref: '#/components/responses/PeopleListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /v1/starships:
+    get:
+      operationId: get-starships-filtered-and-sorted
+      tags:
+        - starhips-v1
+      summary: Get starships by name and sorted by created / name
+      description: Returns the starships matching the name and sorted by name / created.
+      parameters:
+        - $ref: '#/components/parameters/NameQueryParam'
+        - $ref: '#/components/parameters/SortByQueryParam'
+        - $ref: '#/components/parameters/SortOrderQueryParam'
+      responses:
+        '200':
+          $ref: '#/components/responses/StarshipListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  schemas:
+    Error:
+      $ref: './common/Error.yaml'
+  parameters:
+    NameQueryParam:
+      $ref: './parameters/NameQueryParam.yaml'
+    SortByQueryParam:
+      $ref: './parameters/SortByQueryParam.yaml'
+    SortOrderQueryParam:
+      $ref: './parameters/SortOrderQueryParam.yaml'
+  responses:
+    PeopleListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "./response/PeopleListResponse.yaml"
+    StarshipListResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "./response/StarshipListResponse.yaml"
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+tags:
+  - name: people-v1
+    description: Version 1 for people API
+  - name: starships-v1
+    description: Version 1 for starships API

@@ -1,0 +1,59 @@
+plugins {
+    id 'org.openapi.generator' version '7.3.0'
+}
+
+base {
+    archivesName = 'api-lib'
+}
+
+dependencies {
+    implementation 'org.springframework:spring-web'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api'
+    implementation 'jakarta.annotation:jakarta.annotation-api'
+    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
+    implementation 'org.hibernate.validator:hibernate-validator'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0'
+}
+
+openApiGenerate {
+    inputSpec = "$projectDir/src/main/resources/api.yaml".toString()
+    generatorName = "spring"
+    modelNameSuffix = "Dto"
+    packageName = "com.capitole.challenge.starwars.api.lib"
+    apiPackage = "com.capitole.challenge.starwars.api.lib.controller"
+    modelPackage = "com.capitole.challenge.starwars.api.lib.model"
+    configOptions = [
+            "library"                                : "spring-boot",
+            "title"                                  : project.name,
+            "serializationLibrary"                   : "jackson",
+            "additionalModelTypeAnnotations"         : "@lombok.NoArgsConstructor @lombok.experimental.SuperBuilder",
+            "interfaceOnly"                          : "true",
+            "generatedConstructorWithRequiredArgs"   : "false",
+            "skipDefaultInterface"                   : "true",
+            "delegatePattern"                        : "false",
+            "useTags"                                : "true",
+            "useSpringBoot3"                         : "true",
+            "useJakartaEe"                           : "true",
+            "openApiNullable"                        : "false",
+            "performBeanValidation"                  : "true",
+            "useBeanValidation"                      : "true",
+            "supportingFiles"                        : "false"
+    ]
+    typeMappings = [
+            "double"        : "java.math.BigDecimal",
+            "float"         : "java.math.BigDecimal",
+            "OffsetDateTime": "java.time.LocalDateTime"
+    ]
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir "${buildDir}/generate-resources/main/src/main/java"
+        }
+    }
+}
+
+tasks.named('compileJava') {
+    dependsOn tasks.named('openApiGenerate')
+}

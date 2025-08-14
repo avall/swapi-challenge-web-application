@@ -1,0 +1,56 @@
+title: Starship
+type: object
+description: Model for Starship
+properties:
+  created:
+    title: Created Date
+    type: string
+    format: date-time
+    description: Created date of the starship
+    example: '2014-12-09T13:50:51.644000Z'
+  edited:
+    type: string
+    format: date-time
+    example: "2014-12-20T21:17:56.891000Z"
+  name:
+    type: string
+    example: "CR90 corvette"
+  model:
+    type: string
+    example: "CR90 corvette"
+  manufacturer:
+    type: string
+    example: "Corellian Engineering Corporation"
+  cost_in_credits:
+    type: string
+    example: "3500000"
+  length:
+    type: string
+    example: "150"
+  max_atmosphering_speed:
+    type: string
+    example: "950"
+  crew:
+    type: string
+    example: "30-165"
+  passengers:
+    type: string
+    example: "600"
+  cargo_capacity:
+    type: string
+    example: "3000000"
+  consumables:
+    type: string
+    example: "1 year"
+  hyperdrive_rating:
+    type: string
+    example: "2.0"
+  MGLT:
+    type: string
+    example: "60"
+  starship_class:
+    type: string
+    example: "corvette"
+  url:
+    type: string
+    example: "https://swapi.info/api/starships/2"

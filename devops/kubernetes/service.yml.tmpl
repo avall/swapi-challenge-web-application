@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: ${APP_REPO}
+    app.kubernetes.io/version: ${APP_COMMIT}
+    app.kubernetes.io/managed-by: github
+    app.kubernetes.io/component: service
+    app.kubernetes.io/part-of: ${APP_REPO}-svc
+  name: ${APP_REPO}-svc
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: ${APP_SERVER_PORT}
+  selector:
+    app: ${APP_REPO}

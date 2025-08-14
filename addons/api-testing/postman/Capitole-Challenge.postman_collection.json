@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "0fed79d4-c3ab-4c11-b0af-603409d16c92",
+		"name": "Capitole Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "307928"
+	},
+	"item": [
+		{
+			"name": "2020-06-14 10:00:00",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/people?name=luke&sortBy=name&sortOrder=DESC\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+            "api",
+						"v1",
+						"people"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "luke"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						},
+						{
+							"key": "sortOrder",
+							"value": "DESC\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},		{
+      "name": "2020-06-14 10:00:00",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8082/api/v1/starships?name=luke&sortBy=name&sortOrder=DESC\n",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8082",
+          "path": [
+            "api",
+            "v1",
+            "starships"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "luke"
+            },
+            {
+              "key": "sortBy",
+              "value": "name"
+            },
+            {
+              "key": "sortOrder",
+              "value": "DESC\n"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+
+  ]
+}

@@ -1,0 +1,8 @@
+title: StarshipListResponse
+type: object
+description: People list
+properties:
+  content:
+    type: array
+    items:
+      $ref: '../models/starship.yaml'

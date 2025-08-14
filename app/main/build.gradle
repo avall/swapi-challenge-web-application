@@ -1,0 +1,27 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+dependencies {
+    implementation project(':app:domain')
+    implementation project(':app:application')
+    implementation project(':app:infrastructure:rest-api')
+    implementation project(':app:infrastructure:rest-client')
+    implementation project(':app:infrastructure:frontend')
+    implementation project(':api-lib')
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    testImplementation 'io.rest-assured:spring-web-test-client'
+}
+
+bootJar {
+    enabled = true
+    archiveBaseName = 'starwars-app'
+    archiveVersion = '0.0.1-SNAPSHOT'
+}
+
+jar {
+    enabled = false
+}

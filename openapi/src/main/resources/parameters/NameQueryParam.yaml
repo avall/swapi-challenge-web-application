@@ -1,0 +1,6 @@
+schema:
+  type: string
+in: query
+name: name
+required: false
+description: name as query parameter

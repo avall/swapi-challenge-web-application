@@ -1,0 +1,23 @@
+### GET people
+GET http://localhost:8082/v1/people?name=ara&sort_by=created&sort_order=desc
+
+> {%
+  client.test("Request executed successfully", function() {
+    client.assert(response.status === 200, "Response status is not 200");
+    client.assert(response.body["content"][0].name === "Ackbar", "First record is wrong");
+  });
+%}
+
+### GET starships
+GET http://localhost:8082/v1/starships?sort_by=created&sort_order=desc
+
+> {%
+  client.test("Request executed successfully", function() {
+    client.assert(response.status === 200, "Response status is not 200");
+    client.assert(response.body["content"][0].name === "A-wing", "First record is wrong");
+  });
+%}
+
+
+
+
