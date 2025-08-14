@@ -24,6 +24,10 @@ The `swapi.co` is no longer available and i assume to use `swapi.info`
 - The `@Interactor` (decorator) is useful to avoid the Spring Framework dependencies in the Application layer.
 - The UI has been implemented using ReactJS.
 
+## Prerequisites
+Java 17 (to run locally)
+Docker (for Kafka via docker-compose)
+
 ## Run the Project
 ### from your local JVM
 Then to run:
