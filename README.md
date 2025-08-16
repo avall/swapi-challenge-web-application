@@ -44,4 +44,5 @@ docker compose up
       - `curl http://localhost:8082/v1/people`
       - `curl http://localhost:8082/v1/starships`
     - From `ìntellij` using `http` feature. Go to folder `./addons/api-testing/http-samples` & click on the file (`http-requests.http`) with extension `http`.
-    - From `postman` import the collection `./addons/api-testing/postman/Capitole-Challenge.postman_collection.json`. 
+    - From `postman` import the collection `./addons/api-testing/postman/Capitole-Challenge.postman_collection.json`.
+    - From swagger UI: `http://localhost:8082/swagger-ui.html`

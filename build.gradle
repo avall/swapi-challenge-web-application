@@ -28,7 +28,7 @@ subprojects {
             dependency "io.rest-assured:rest-assured:5.4.0"
             dependency "org.mapstruct:mapstruct:1.5.5.Final"
             dependency "org.jeasy:easy-random-core:5.0.0"
-            dependency "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0"
+            dependency "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0"
         }
     }
 
