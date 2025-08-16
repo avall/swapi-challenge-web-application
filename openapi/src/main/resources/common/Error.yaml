@@ -17,7 +17,7 @@ properties:
   source:
     type: string
     description: 'Full name of the microservice from which error comes from. If error is an aggregate, then ms aggregating errors is a source (details can have its own of necessary).'
-    example: controlplane-server-ms-tenant
+    example: controlplane-server
   trace:
     type: string
   correlation_id:
